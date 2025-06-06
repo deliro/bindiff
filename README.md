@@ -1,6 +1,6 @@
-# bindiff
+# bitcut
 
-`bindiff` is a simple CLI tool for creating and applying binary patches.
+`bitcut` is a simple CLI tool for creating and applying binary patches.
 
 ## Motivation
 When two binary files are similar, rewriting or transmitting the entire new version can be inefficient. This tool reduces the cost by generating a compact binary patch that represents only the difference. The new file can then be reconstructed by applying the patch to the original.
@@ -40,7 +40,7 @@ This tool works best when the two binary files are mostly similar — for exampl
 Creates a binary patch from two files and writes the patch to stdout.
 
 ```sh
-bindiff diff old_file.bin new_file.bin > patch.bin
+bitcut diff old_file.bin new_file.bin > patch.bin
 ```
 
 ### patch
@@ -48,13 +48,13 @@ bindiff diff old_file.bin new_file.bin > patch.bin
 Applies a binary patch to a file and writes the result to stdout.
 
 ```sh
-bindiff patch old_file.bin patch.bin > new_file.bin
+bitcut patch old_file.bin patch.bin > new_file.bin
 ```
 
 ## Install from sources
 
 ```sh
-cargo install --git https://github.com/tochka-public/bindiff
+cargo install bitcut
 ```
 
 ## Build
@@ -66,6 +66,6 @@ cargo build --release
 ## Run
 
 ```sh
-./target/release/bindiff diff a.bin b.bin > patch
-./target/release/bindiff patch a.bin patch > b.bin
+./target/release/bitcut diff a.bin b.bin > patch
+./target/release/bitcut patch a.bin patch > b.bin
 ```
